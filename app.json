@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/caseList/caseList",
+    "pages/search/search",
+    "pages/mine/mine",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/caseDetail/caseDetail",
+    "pages/newCase/newCase",
+    "pages/myCaseList/myCaseList",
+    "pages/myDiagnosisList/myDiagnosisList",
+    "pages/newDiagnosis/newDiagnosis",
+    "pages/myInfo/myInfo",
+    "pages/myAccount/myAccount",
+    "pages/doctorIntroduction/doctorIntroduction"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/caseList/caseList",
+        "text": "问诊列表"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  }
+}
