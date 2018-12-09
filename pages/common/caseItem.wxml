@@ -1,0 +1,22 @@
+<!--pages/caseList/caseItem.wxml-->
+<template name="caseItem">
+<navigator url='../caseDetail/caseDetail?id={{id}}'>
+ <view class="caseInfo">
+    <view class="caseInfo-t">
+      <view class="caseTitle">{{title}}</view>
+      
+    </view>
+    <view class="caseInfo-m">
+      <text>{{content}}</text>
+    </view>
+    <view class="caseInfo-b">
+      <view class="caseTime">
+        <text>{{time}}</text>
+      </view>
+      <view wx:if="{{reply}}" class='caseReply'>已回复</view>
+      <view wx:else class='caseReply' style='color:red'>未回复</view>
+    </view>
+  </view>
+</navigator>
+ 
+</template>

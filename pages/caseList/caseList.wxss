@@ -1,1 +1,2 @@
 /* pages/caseList/caseList.wxss */
+@import "../common/caseItem.wxss";

@@ -1,2 +1,8 @@
 <!--pages/caseList/caseList.wxml-->
+<import src="../common/caseItem.wxml"/>
 <text>pages/caseList/caseList.wxml</text>
+<block wx:for="{{caseList}}">
+  <template is="caseItem" data="{{...item}}"/>
+</block>
+
+
