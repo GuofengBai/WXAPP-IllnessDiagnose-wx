@@ -1,0 +1,45 @@
+.caseInfo{
+  width: 100%;
+  border-top: 2px solid;
+  margin: 1px;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.caseTitle{
+  font-size: 120%;
+  padding: 1px 5px;
+  margin-bottom: 5px
+}
+.caseTime{
+  width: 70%;
+  color:  rgb(71, 51, 255);
+  padding: 1px 5px
+}
+.caseReply{
+  margin: auto;
+  color: rgb(71, 51, 255);
+  padding: 1px 5px
+}
+.caseInfo-t{
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #D9D9D9
+}
+.caseInfo-m{
+  font-size: 80%;
+  padding: 1px 5px;
+  margin: auto;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  border-bottom: 1px solid #D9D9D9
+}
+.caseInfo-b{
+  display: flex;
+  flex-direction: row;
+}

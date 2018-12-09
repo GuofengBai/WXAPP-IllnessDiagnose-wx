@@ -1,2 +1,3 @@
 <!--pages/caseDetail/caseDetail.wxml-->
 <text>pages/caseDetail/caseDetail.wxml</text>
+<text>传了个：{{id}}</text>
