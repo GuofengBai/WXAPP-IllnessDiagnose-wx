@@ -1,3 +1,22 @@
 <!--pages/caseDetail/caseDetail.wxml-->
-<text>pages/caseDetail/caseDetail.wxml</text>
-<text>传了个：{{id}}</text>
+<view class='casePublicDetail'>
+
+  <view class="caseTitle">{{caseDetail.title}}</view>
+  <view class='caseInfo-t'>
+    <view class="caseTime">
+        <text>问诊日期：{{caseDetail.time}}</text>
+      </view>
+      <view class='caseContent'>
+        <text>病情描述：{{caseDetail.content}}</text>
+      </view>
+  </view>
+  <block wx:for="{{caseDetail.diagnosisList}}">
+    <view class='caseDiagnosis'>
+      <text>{{item.doctorId}}</text>
+    </view>
+  </block>
+
+    
+</view>
+<view class='casePrivateDetail'>
+</view>

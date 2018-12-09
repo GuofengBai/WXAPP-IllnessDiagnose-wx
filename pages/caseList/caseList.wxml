@@ -1,6 +1,15 @@
 <!--pages/caseList/caseList.wxml-->
 <import src="../common/caseItem.wxml"/>
-<text>pages/caseList/caseList.wxml</text>
+
+<view class="caseList-t">
+  <view class="caseRecord">
+    <text>问诊记录</text>
+  </view>
+  <navigator class='caseCreate' url='../newCase/newCase'>
+    <text>问问医生</text>
+  </navigator>
+</view>
+
 <block wx:for="{{caseList}}">
   <template is="caseItem" data="{{...item}}"/>
 </block>

@@ -1,2 +1,14 @@
 /* pages/caseList/caseList.wxss */
 @import "../common/caseItem.wxss";
+.caseList-t{
+  display: flex;
+  flex-direction: row;
+}
+.caseRecord{
+  padding: 1px 5px;
+  width:70%
+}
+.caseCreate{
+  margin: auto;
+   color: blue
+}
