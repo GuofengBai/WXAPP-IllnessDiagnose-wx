@@ -34,6 +34,10 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: {
+      id:"111",
+      name:"ascasc",
+      type:"user"
+    }
   }
 })
