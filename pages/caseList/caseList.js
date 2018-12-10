@@ -1,10 +1,13 @@
 // pages/caseList/caseList.js
+
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    userInfo: app.globalData.userInfo,
     page:1,
     caseList:[
       {

@@ -20,8 +20,9 @@
 
 .caseInfo-m{
   font-size: 80%;
+  padding: 1px 5px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   border-bottom: 1px solid #D9D9D9
 }
 .caseContent{
@@ -33,5 +34,23 @@
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  border-bottom: 1px solid #D9D9D9
+  
+}
+.caseDiagnosisInfo{
+  display: flex;
+  flex-direction: row;
+}
+.date{
+  color: #09a6ac;
+}
+.privateInfo{
+  padding: 1px 5px;
+  font-size:80%;
+  display: flex;
+  flex-direction: column;
+}
+.privateInfo-text{
+  
+  display: flex;
+  flex-direction: row;
 }

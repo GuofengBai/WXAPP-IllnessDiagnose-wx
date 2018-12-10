@@ -9,12 +9,32 @@
       <view class='caseContent'>
         <text>病情描述：{{caseDetail.content}}</text>
       </view>
+
+      <view class='privateInfo'>
+        <view wx:if="{{userInfo.id==caseDetail.userInfo.id||userInfo.type=='doctor'}}" class='privateInfo-text'>
+          <text style='width:25%'>性别：{{caseDetail.userInfo.gender}} </text>
+          <text style='width:25%'>年龄：{{caseDetail.userInfo.age}} </text>
+          <text>联系方式：{{caseDetail.userInfo.contect}} </text>
+        </view>
+          <text>病例照片：</text>
+          <block wx:for="{{caseDetail.pictures}}" wx:for-index='idx' wx:for-item='picture'>
+             <image src='{{picture}}'></image>
+          </block>
+         
+      </view>
   </view>
+  
+
+  <view class='caseInfo-m'>
   <block wx:for="{{caseDetail.diagnosisList}}">
-    <view class='caseDiagnosis'>
-      <text>{{item.doctorId}}</text>
+    <view class='caseDiagnosisInfo'>
+      <navigator url='../doctorIntroduction/doctorIntroduction?doctorId={{item.doctorId}}'>{{item.doctorId}}：</navigator>
+      <text class='date'>{{item.date}}</text>
     </view>
+    <text>诊断意见：{{item.content}}</text>
   </block>
+  </view>
+  
 
     
 </view>

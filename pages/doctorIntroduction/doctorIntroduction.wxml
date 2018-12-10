@@ -1,2 +1,3 @@
 <!--pages/doctorIntroduction/doctorIntroduction.wxml-->
-<text>pages/doctorIntroduction/doctorIntroduction.wxml</text>
+
+<text>{{doctorId}}</text>
