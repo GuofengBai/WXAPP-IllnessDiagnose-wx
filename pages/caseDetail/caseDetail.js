@@ -3,11 +3,18 @@
 const app=getApp();
 
 Page({
+  handleContentInput(e) {
+    const value = e.detail.value
+    this.data.content = value
+    this.data.contentCount = value.length
+    $digest(this)
+  },
 
   /**
    * 页面的初始数据
    */
   data: {
+    contentCount:0,
 
     id:1,
     /**

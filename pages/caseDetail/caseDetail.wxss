@@ -7,7 +7,7 @@
   border-bottom: 1px solid #D9D9D9
 }
 .caseTime{
-  font-size: 80%;
+  font-size: 90%;
   width: 100%;
   color:  rgb(71, 51, 255);
   padding: 1px 5px;
@@ -19,14 +19,14 @@
 }
 
 .caseInfo-m{
-  font-size: 80%;
+  font-size: 90%;
   padding: 1px 5px;
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid #D9D9D9
 }
 .caseContent{
-  font-size: 80%;
+  font-size: 90%;
   padding: 1px 5px;
   margin: auto;
   overflow: hidden;
@@ -45,7 +45,7 @@
 }
 .privateInfo{
   padding: 1px 5px;
-  font-size:80%;
+  font-size:90%;
   display: flex;
   flex-direction: column;
 }
@@ -53,4 +53,7 @@
   
   display: flex;
   flex-direction: row;
+}
+.caseComment{
+  padding: 1px 5px;
 }

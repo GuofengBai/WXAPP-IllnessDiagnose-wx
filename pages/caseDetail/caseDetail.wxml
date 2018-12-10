@@ -12,9 +12,9 @@
 
       <view class='privateInfo'>
         <view wx:if="{{userInfo.id==caseDetail.userInfo.id||userInfo.type=='doctor'}}" class='privateInfo-text'>
-          <text style='width:25%'>性别：{{caseDetail.userInfo.gender}} </text>
-          <text style='width:25%'>年龄：{{caseDetail.userInfo.age}} </text>
-          <text>联系方式：{{caseDetail.userInfo.contect}} </text>
+          <text style='width:22%'>性别：{{caseDetail.userInfo.gender}} </text>
+          <text style='width:22%'>年龄：{{caseDetail.userInfo.age}} </text>
+          <text style='margin:auto'>联系方式：{{caseDetail.userInfo.contact}} </text>
         </view>
           <text>病例照片：</text>
           <block wx:for="{{caseDetail.pictures}}" wx:for-index='idx' wx:for-item='picture'>
@@ -38,5 +38,12 @@
 
     
 </view>
-<view class='casePrivateDetail'>
+<view wx:if="{{userInfo.type=='doctor'}}" class='caseComment'>
+  <text style='width:25%'>先情诊断： </text>
+  <view class="weui-cell__bd">
+      <textarea class="weui-textarea" placeholder="请输入您对患者病情的先情诊断。" maxlength="500" placeholder-style="color:#b3b3b3;" style="height: 12rem" bindinput="handleContentInput" />
+      <view class="weui-textarea-counter">{{contentCount}}/500</view>
+  </view>
 </view>
+
+<button class="weui-btn" type="primary" bindtap="submitForm" style='width:50%'>提交</button>
