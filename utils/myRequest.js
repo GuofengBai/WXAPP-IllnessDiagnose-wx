@@ -1,3 +1,6 @@
+import { promisify } from 'promise.util'
+const wxUploadFile = promisify(wx.uploadFile)
+
 const app=getApp()
 
 function myRequest(url,data,methed,success,fail,complete){
@@ -82,8 +85,37 @@ function updateMyAccount(data,success,fail,complete){
   })
 }
 
-function newCase(){
-  
+function newCase(title,content,images,success,fail,complete){
+  wx.request({
+    url: 'http://localhost:3000/api/case/',
+    method: 'POST',
+    data: {
+      title: title,
+      content: content,
+      userId: app.globalData.userInfo.id
+    },
+    success: function(res){
+      var caseId=res.id
+      const arr = []
+
+      for(var i=0;i<images.length;i++){
+        arr.push(wxUploadFile({
+          url: 'localhost:3000/api/case/'+caseId+'/images/'+'i',
+          filePath: images[i],
+          name: caseId+'-'+i,
+        }))
+      }
+
+      Promise.all(arr).then(res => {
+        success(res)
+      }).catch(err => {
+        fail(err)
+      })
+
+    },
+    fail: fail,
+    complete: complete
+  })
 }
 
 function newDiagnosis(){

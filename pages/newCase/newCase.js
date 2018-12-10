@@ -1,66 +1,82 @@
 // pages/newCase/newCase.js
+var myRequest=require('../../utils/myRequest')
+import { $init, $digest } from '../../utils/common.util'
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    titleCount: 0,
+    contentCount: 0,
+    title: '',
+    content: '',
+    images: []
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onLoad(options) {
+    $init(this)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  handleTitleInput(e) {
+    const value = e.detail.value
+    this.data.title = value
+    this.data.titleCount = value.length
+    $digest(this)
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  handleContentInput(e) {
+    const value = e.detail.value
+    this.data.content = value
+    this.data.contentCount = value.length
+    $digest(this)
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  chooseImage(e) {
+    wx.chooseImage({
+      count: 3,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: res => {
+        const images = this.data.images.concat(res.tempFilePaths)
+        this.data.images = images.length <= 3 ? images : images.slice(0, 3)
+        $digest(this)
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  removeImage(e) {
+    const idx = e.target.dataset.idx
+    this.data.images.splice(idx, 1)
+    $digest(this)
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
+  handleImagePreview(e) {
+    const idx = e.target.dataset.idx
+    const images = this.data.images
 
+    wx.previewImage({
+      current: images[idx],
+      urls: images,
+    })
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
+  submitForm(e) {
+    const title = this.data.title
+    const content = this.data.content
+    const images = this.data.images
 
-  },
+    wx.showLoading({
+      title: '正在创建...',
+      mask: true
+    })
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+    myRequest.newCase(title,content,images,function(res){
+      wx.hideLoading()
+      wx.navigateBack()
+    },function(err){
+      wx.hideLoading()
+    },function(){
+      wx.hideLoading()
+    })
 
   }
+
 })
