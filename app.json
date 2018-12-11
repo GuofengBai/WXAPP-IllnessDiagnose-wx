@@ -3,8 +3,6 @@
     "pages/caseList/caseList",
     "pages/search/search",
     "pages/mine/mine",
-    "pages/index/index",
-    "pages/logs/logs",
     "pages/caseDetail/caseDetail",
     "pages/newCase/newCase",
     "pages/myCaseList/myCaseList",
@@ -12,7 +10,8 @@
     "pages/newDiagnosis/newDiagnosis",
     "pages/myInfo/myInfo",
     "pages/myAccount/myAccount",
-    "pages/doctorIntroduction/doctorIntroduction"
+    "pages/doctorIntroduction/doctorIntroduction",
+    "pages/register/register"
   ],
   "window": {
     "backgroundTextStyle": "light",

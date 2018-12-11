@@ -1,4 +1,5 @@
 import { promisify } from 'promise.util'
+import serverIP from 'config'
 const wxUploadFile = promisify(wx.uploadFile)
 
 const app=getApp()
@@ -21,7 +22,7 @@ function myRequest(url,data,methed,success,fail,complete){
 function getCaseList(page,success,fail,complete){
   page=arguments[0]?arguments[0]:1;
   wx.request({
-    url: 'localhost:3000/api/case/?page='+page,
+    url: serverIP+'/api/case/?page='+page,
     success:success,
     fail:fail,
     complete:complete
@@ -31,7 +32,7 @@ function getCaseList(page,success,fail,complete){
 function searchCaseList(word,page,success,fail,complete){
   page=arguments[0]?arguments[0]:1;
   wx.request({
-    url: 'localhost:3000/api/case/?query='+word+'&page='+page,
+    url: serverIP+'/api/case/?query='+word+'&page='+page,
     success:success,
     fail:fail,
     complete:complete
@@ -40,7 +41,7 @@ function searchCaseList(word,page,success,fail,complete){
 
 function getCaseDetail(caseId,success,fail,complete){
   wx.request({
-    url: 'localhost:3000/api/case/'+caseId,
+    url: serverIP+'/api/case/'+caseId,
     success: success,
     fail: fail,
     complete: complete
@@ -49,7 +50,7 @@ function getCaseDetail(caseId,success,fail,complete){
 
 function getMyCaseList(success,fail,complete){
   wx.request({
-    url: 'localhost:3000/api/user/'+app.globalData.userInfo.id+'/case',
+    url: serverIP+'/api/user/'+app.globalData.userInfo.id+'/case',
     success: success,
     fail: fail,
     complete: complete
@@ -58,7 +59,7 @@ function getMyCaseList(success,fail,complete){
 
 function getMyInfo(success,fail,complete){
   wx.request({
-    url: 'localhost:3000/api/user/' + app.globalData.userInfo.id,
+    url: serverIP+'/api/user/' + app.globalData.userInfo.id,
     success: success,
     fail: fail,
     complete: complete
@@ -67,7 +68,7 @@ function getMyInfo(success,fail,complete){
 
 function updateMyInfo(data,success,fail,complete){
   wx.request({
-    url: 'localhost:3000/api/user/' + app.globalData.userInfo.id,
+    url: serverIP+'/api/user/' + app.globalData.userInfo.id,
     method:'POST',
     data:data,
     success: success,
@@ -78,7 +79,7 @@ function updateMyInfo(data,success,fail,complete){
 
 function updateMyAccount(data,success,fail,complete){
   wx.request({
-    url: 'localhost:3000/api/user/' + app.globalData.userInfo.id,
+    url: serverIP+'/api/user/' + app.globalData.userInfo.id,
     success: success,
     fail: fail,
     complete: complete
@@ -87,7 +88,7 @@ function updateMyAccount(data,success,fail,complete){
 
 function newCase(title,content,images,success,fail,complete){
   wx.request({
-    url: 'http://localhost:3000/api/case/',
+    url: serverIP+'/api/case/',
     method: 'POST',
     data: {
       title: title,
@@ -121,7 +122,7 @@ function newCase(title,content,images,success,fail,complete){
 function newDiagnosis(content,success,fail,complete){
   
   wx.request({
-    url: 'http://localhost:3000/api/',
+    url: serverIP+'/api/',
     method: 'POST',
     data:{
       userId: app.globalData.userInfo.id,
