@@ -57,3 +57,13 @@
 .caseComment{
   padding: 1px 5px;
 }
+
+.weui-textarea-counter{
+  color: #b3b3b3;
+  font-size: 14px;
+  padding-left: 10rpx;
+}
+.weui-textarea{
+  width:100%;
+  border: 1px solid;
+}

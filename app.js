@@ -6,6 +6,13 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+    wx.request({
+      url: 'http://192.168.1.107:3000',
+      success:function(res){
+        console(res);
+      },
+    })
+
     // 登录
     wx.login({
       success: res => {

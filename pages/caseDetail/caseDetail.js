@@ -1,5 +1,6 @@
 // pages/caseDetail/caseDetail.js
-
+var myRequest = require('../../utils/myRequest')
+import { $init, $digest } from '../../utils/common.util'
 const app=getApp();
 
 Page({
@@ -114,5 +115,39 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  submitForm(e) {
+    /*wx.redirectTo({
+      url: '../caseDetail/caseDetail?id=' + this.data.id,
+    })*/
+
+    let that=this
+    
+    const content = this.data.content
+
+    wx.showLoading({
+      title: '正在创建...',
+      mask: true
+    })
+
+    myRequest.newDiagnosis(content,function (res) {
+      wx.hideLoading()
+      wx.redirectTo({
+        url: '.../caseDetail/caseDetail?id='+that.data.id,
+      })
+    }, function (err) {
+      wx.hideLoading()
+    }, function () {
+      wx.hideLoading()
+    })
+
+  },
+  handleContentInput(e) {
+    const value = e.detail.value
+    this.data.content = value
+    this.data.contentCount = value.length
+    $digest(this)
+  },
+
 })

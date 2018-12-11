@@ -118,8 +118,20 @@ function newCase(title,content,images,success,fail,complete){
   })
 }
 
-function newDiagnosis(){
-
+function newDiagnosis(content,success,fail,complete){
+  
+  wx.request({
+    url: 'http://localhost:3000/api/',
+    method: 'POST',
+    data:{
+      userId: app.globalData.userInfo.id,
+      content: content,
+      date:new Date(),
+    },
+    success:success,
+    fail:fail,
+    complete:complete,
+  })
 }
 
 module.exports={
