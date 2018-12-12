@@ -1,5 +1,5 @@
 // pages/caseList/caseList.js
-
+var myRequest = require('../../utils/myRequest')
 const app = getApp();
 Page({
 
@@ -52,7 +52,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that=this
+    myRequest.getCaseList(this.data.page,function(res){
+      console.log(res)
+      /*
+      that.setData({
+        caseList:that.data.caseList.concat(res.data)
+      })
+      that.data.page++
+      */
+    },function(err){
+      console.log(err)
+    },function(){
 
+    })
   },
 
   /**

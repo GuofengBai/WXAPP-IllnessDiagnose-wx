@@ -1,2 +1,12 @@
 <!--pages/myCaseList/myCaseList.wxml-->
-<text>pages/myCaseList/myCaseList.wxml</text>
+<import src="../common/caseItem.wxml"/>
+
+<view class="caseList-t">
+  <view class="caseRecord">
+    <text>我的问题</text>
+  </view>
+</view>
+
+<block wx:for="{{caseList}}">
+  <template is="caseItem" data="{{...item}}"/>
+</block>

@@ -1,5 +1,5 @@
 import { promisify } from 'promise.util'
-import serverIP from 'config'
+const serverIP=require('config').serverIP
 const wxUploadFile = promisify(wx.uploadFile)
 
 const app=getApp()

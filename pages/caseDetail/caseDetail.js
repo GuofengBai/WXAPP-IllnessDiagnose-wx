@@ -10,13 +10,19 @@ Page({
    * 页面的初始数据
    */
   data: {
+<<<<<<< HEAD
     contentCount: 0,
     content: '',
+=======
+
+    contentCount:0,
+
+>>>>>>> b6a6176f91734f35ace7f44dcbcd0b76bd860cbc
     id:1,
     /**
      * 这是当前用户的Info
      */
-    userInfo:{type:'doctor',},
+    userInfo:app.globalData.userInfo,
     caseDetail:{
       id:1,
       title:"我肚子非常非常疼",
@@ -61,6 +67,18 @@ Page({
     $init(this)
     this.setData({
       id:options.id,
+    })
+    myRequest.getCaseDetail(options.id,function(res){
+      console.log(res)
+      /*
+      this.setData({
+        caseDetail:res.data
+      })
+      */
+    },function(err){
+      console.log(err)
+    },function(){
+
     })
   },
 
