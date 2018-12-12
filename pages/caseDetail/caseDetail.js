@@ -15,13 +15,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+
     contentCount:0,
 
     id:1,
     /**
      * 这是当前用户的Info
      */
-    userInfo:{type:'doctor',},
+    userInfo:app.globalData.userInfo,
     caseDetail:{
       id:1,
       title:"我肚子非常非常疼",
@@ -65,6 +66,18 @@ Page({
   onLoad: function (options) {
     this.setData({
       id:options.id,
+    })
+    myRequest.getCaseDetail(options.id,function(res){
+      console.log(res)
+      /*
+      this.setData({
+        caseDetail:res.data
+      })
+      */
+    },function(err){
+      console.log(err)
+    },function(){
+
     })
   },
 
