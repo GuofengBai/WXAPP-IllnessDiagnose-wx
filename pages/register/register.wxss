@@ -1,1 +1,27 @@
 /* pages/register/register.wxss */
+page {
+  background: #f6f7f8;
+}
+.register-form {
+  margin: 25rpx;
+}
+.register-input-area {
+  background-color: #fff;
+  border: 1rpx solid #f2f2f2;
+  border-radius: 4rpx;
+}
+.input-counter {
+  color: #b3b3b3;
+  font-size: 14px;
+  padding-left: 10rpx;
+}
+.name,.introduction,.contact,.gender,.type {
+  margin-top: 2rem;
+  border-bottom: 1px solid
+}
+.checked {
+  color: rgba(0, 204, 255, 0.877)
+}
+.radio-item {
+  margin:1rem
+}

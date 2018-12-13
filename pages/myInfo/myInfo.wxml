@@ -1,2 +1,36 @@
 <!--pages/myInfo/myInfo.wxml-->
-<text>pages/myInfo/myInfo.wxml</text>
+<view class="info-form">
+
+  <view class="info-input-area">
+
+    <view class="name">
+      <input placeholder="姓名" maxlength="10" placeholder-style="color:#b3b3b3;font-size:18px;" bindinput="handleNameInput" value="{{name}}"></input>
+      <view class="input-counter">{{nameCount}}/10</view>
+    </view>
+    
+    <view class="introduction">
+      <textarea placeholder="个人简介" maxlength="500" placeholder-style="color:#b3b3b3;font-size:14px;" style="height: 12rem" bindinput="handleIntroductionInput" value="{{introduction}}"/>
+      <view class="input-counter">{{introductionCount}}/500</view>
+    </view>
+
+    <view class="contact">
+      <textarea placeholder="联系方式、住址" maxlength="100" placeholder-style="color:#b3b3b3;font-size:14px;" style="height: 3rem" bindinput="handleContactInput" value="{{contact}}"/>
+      <view class="input-counter">{{contactCount}}/100</view>
+    </view>
+
+    <view class="gender">
+      <block wx:for="{{gender}}" wx:key="item">
+    <text class='radio-item {{item.id==genderSelect?"checked":""}}' data-id='{{item.id}}' bindtap='genderSel'>{{item.value}}</text>
+      </block>
+    </view>
+
+    <view class="type">
+      <text class="radio-item checked">{{type}}</text>
+    </view>
+
+  </view>
+
+  <!-- 提交表单按钮  -->
+  <button class="weui-btn" type="primary" bindtap="submitForm">提交</button>
+
+</view>

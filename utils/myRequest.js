@@ -58,17 +58,30 @@ function getMyCaseList(success,fail,complete){
 }
 
 function getMyInfo(success,fail,complete){
+  var user={
+    name:"guofengbai",
+    introduction:"what!!!!",
+    gender:"男",
+    type:"用户",
+    contact:"guofengbai"
+  }
+  success(user)
+  /*
   wx.request({
     url: serverIP+'/api/user/' + app.globalData.userInfo.id,
-    success: success,
+    success: function(res){
+      success(res.data)
+    },
     fail: fail,
     complete: complete
   })
+  */
 }
 
 function updateMyInfo(data,success,fail,complete){
+  console.log(data)
   wx.request({
-    url: serverIP+'/api/user/' + app.globalData.userInfo.id,
+    url: serverIP+'/api/user/' + app.globalData.userInfo.id+'/info',
     method:'POST',
     data:data,
     success: success,
@@ -79,7 +92,7 @@ function updateMyInfo(data,success,fail,complete){
 
 function updateMyAccount(data,success,fail,complete){
   wx.request({
-    url: serverIP+'/api/user/' + app.globalData.userInfo.id,
+    url: serverIP+'/api/user/' + app.globalData.userInfo.id+'account',
     success: success,
     fail: fail,
     complete: complete
@@ -135,6 +148,23 @@ function newDiagnosis(content,success,fail,complete){
   })
 }
 
+function register(user,success,fail){
+  var id = app.globalData.userInfo.id
+  wx.request({
+    url: serverIP+'/api/user/'+id,
+    method: 'POST',
+    data: user,
+    success:function(res){
+      app.globalData.userInfo={
+        id:id,
+        type:user.type
+      };
+      success(res)
+    },
+    fail:fail
+  })
+}
+
 module.exports={
   myRequest:myRequest,
   getCaseList:getCaseList,
@@ -142,8 +172,9 @@ module.exports={
   getCaseDetail:getCaseDetail,
   getMyCaseList:getMyCaseList,
   getMyInfo:getMyInfo,
-  updateMyIndo:updateMyInfo,
+  updateMyInfo:updateMyInfo,
   updateMyAccount:updateMyAccount,
   newCase:newCase,
-  newDiagnosis:newDiagnosis
+  newDiagnosis:newDiagnosis,
+  register:register,
 }

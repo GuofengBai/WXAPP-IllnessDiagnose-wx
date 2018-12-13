@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/caseList/caseList",
-    "pages/search/search",
     "pages/mine/mine",
     "pages/caseDetail/caseDetail",
     "pages/newCase/newCase",
@@ -27,10 +26,6 @@
       {
         "pagePath": "pages/caseList/caseList",
         "text": "问诊列表"
-      },
-      {
-        "pagePath": "pages/search/search",
-        "text": "搜索"
       },
       {
         "pagePath": "pages/mine/mine",

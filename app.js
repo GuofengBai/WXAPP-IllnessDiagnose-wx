@@ -6,25 +6,31 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+    /*
     wx.setStorageSync('user',{
       name:'ascasc',
       type:'user',
       id:'123'
     })
+    */
     var user=wx.getStorageSync('user')
+    let that=this
     if(!user){
       wx.login({
         success:res => {
           console.log(res)
           wx.request({
-            url: this.serverIP,
-            method:'GET',
+            url: this.serverIP+'/api/user',
+            method:'POST',
             data:{
               res_code:res.code
             },
             success:res => {
               console.log(res)
               if(!res.data.hasConfiguredType){
+                that.globalData.userInfo={
+                  id:res.data.id
+                }
                 wx.redirectTo({
                   url: '/pages/register/register',
                 })
@@ -34,10 +40,13 @@ App({
                   type:res.data.type
                 }
                 wx.setStorageSync('user', user)
+                that.globalData.userInfo=user
               }
             },
             fail: function (err) {
-              console.log(err)
+              wx.redirectTo({
+                url: '/pages/register/register',
+              })
             }
           })
         }
