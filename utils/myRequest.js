@@ -4,23 +4,7 @@ const wxUploadFile = promisify(wx.uploadFile)
 
 const app=getApp()
 
-function myRequest(url,data,methed,success,fail,complete){
-  wx.request({
-    url: url,
-    data:data,
-    method:method,
-    success:success,
-    fail:fail,
-    complete:complete,
-    header:{
-      userId:app.globalData.userInfo.id,
-      userType: app.globalData.userInfo.type
-    }
-  })
-}
-
 function getCaseList(page,success,fail,complete){
-  page=arguments[0]?arguments[0]:1;
   wx.request({
     url: serverIP+'/api/case/?page='+page,
     success:success,
@@ -69,7 +53,6 @@ function getMyInfo(success,fail,complete){
 }
 
 function updateMyInfo(data,success,fail,complete){
-  console.log(data)
   wx.request({
     url: serverIP+'/api/user/' + app.globalData.userInfo.id+'/info',
     method:'POST',
@@ -81,7 +64,6 @@ function updateMyInfo(data,success,fail,complete){
 }
 
 function updateMyAccount(data,success,fail,complete){
-  console.log(data)
   wx.request({
     url: serverIP+'/api/user/' + app.globalData.userInfo.id+'/account',
     success: success,
@@ -145,7 +127,7 @@ function newDiagnosis(content,success,fail,complete){
 function register(user,success,fail){
   var id = app.globalData.userInfo.id
   wx.request({
-    url: serverIP+'/api/user/'+id,
+    url: serverIP+'/api/user/'+id+'/info',
     method: 'POST',
     data: user,
     success:function(res){
@@ -171,9 +153,7 @@ function getDoctorInfo(id,success,fail){
   })
 }
 
-
 module.exports={
-  myRequest:myRequest,
   getCaseList:getCaseList,
   getCaseDetail:getCaseDetail,
   getMyCaseList:getMyCaseList,

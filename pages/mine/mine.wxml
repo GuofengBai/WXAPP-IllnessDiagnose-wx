@@ -3,7 +3,7 @@
   <navigator url="/pages/myInfo/myInfo" class='functionItem'>我的信息</navigator>
   <navigator url="/pages/myAccount/myAccount" class='functionItem'>号码绑定</navigator>
   <view wx:if="{{userInfo.type=='user'}}">
-    <navigator url="/pages/myCaseList/myCaseList">我的问题</navigator>
+    <navigator url="/pages/myCaseList/myCaseList" class='functionItem'>我的问题</navigator>
   </view>
 </view>
 

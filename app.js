@@ -18,7 +18,7 @@ App({
     if(!user){
       wx.login({
         success:res => {
-          console.log(res)
+          console.log('login_code:'+res.code)
           wx.request({
             url: this.serverIP+'/api/user',
             method:'POST',
@@ -26,7 +26,7 @@ App({
               res_code:res.code
             },
             success:res => {
-              console.log(res)
+              console.log('login_or_register:'+res.data)
               if(!res.data.hasConfiguredType){
                 that.globalData.userInfo={
                   id:res.data.id
@@ -59,7 +59,7 @@ App({
     userInfo: {
       id:"111",
       name:"ascasc",
-      type:"doctor"
+      type:"user"
     }
   }
 })
