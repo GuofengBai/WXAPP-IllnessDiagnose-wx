@@ -1,2 +1,8 @@
 <!--pages/myAccount/myAccount.wxml-->
-<text>pages/myAccount/myAccount.wxml</text>
+<view class='myAccount'>
+  
+  <input placeholder='电话号码' class='myItem' type='number' bindinput='handlePhoneNumberInput'></input>
+  <input placeholder='设置密码' class='myItem' type='password' bindinput='handlePasswordInput'></input>
+  <button class="btn" type="primary" bindtap="submitForm">保存</button>
+  <text>绑定电话后可访问本问诊程序网页版使用</text>
+</view>

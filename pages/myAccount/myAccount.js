@@ -1,17 +1,22 @@
 // pages/myAccount/myAccount.js
+var myRequest = require('../../utils/myRequest')
+import { $init, $digest } from '../../utils/common.util'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    phoneNumber:'',
+    password:'',
 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad(options) {
+    $init(this)
 
   },
 
@@ -62,5 +67,38 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  handlePhoneNumberInput(e){
+    const value=e.value
+    this.setData({
+      phoneNumber:value
+    })
+
+  },
+  handlePasswordInput(e){
+    const value=e.value
+    this.setData({
+      password:value
+    })
+
+  },
+  submitForm(e){
+    const phoneNumber=this.data.phoneNumber
+    const password=this.data.password
+
+    wx.showLoading({
+      title: '正在更新...',
+      mask: true
+    })
+
+    myRequest.updateMyAccount(phoneNumber,password,function(res){
+      wx.hideLoading()
+      wx.navigateBack()
+    }, function (err) {
+      wx.hideLoading()
+    }, function () {
+      wx.hideLoading()  
+    })
   }
+
 })

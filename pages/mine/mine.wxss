@@ -1,1 +1,14 @@
 /* pages/mine/mine.wxss */
+.mineFunction{
+  width:100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.functionItem{
+  border-bottom: 1px solid black;
+  font-size: 120%;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}

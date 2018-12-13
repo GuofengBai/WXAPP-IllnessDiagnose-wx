@@ -12,10 +12,11 @@
 
       <view class='privateInfo' wx:if="{{userInfo.id==caseDetail.userInfo.id||userInfo.type=='doctor'}}">
         <view class='privateInfo-text'>
-          <text style='width:22%'>性别：{{caseDetail.userInfo.gender}} </text>
-          <text style='width:22%'>年龄：{{caseDetail.userInfo.age}} </text>
-          <text style='margin:auto'>联系方式：{{caseDetail.userInfo.contact}} </text>
+          <text style='width:50%'>性别：{{caseDetail.userInfo.gender}} </text>
+          <text style='width:50%'>年龄：{{caseDetail.userInfo.age}} </text>
+          
         </view>
+        <text style='margin:auto'>联系方式：{{caseDetail.userInfo.contact}} </text>
           <text>病例照片：</text>
           <block wx:for="{{caseDetail.pictures}}" wx:for-index='idx' wx:for-item='picture'>
              <image src='{{picture}}'></image>
