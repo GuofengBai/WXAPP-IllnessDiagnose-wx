@@ -107,6 +107,9 @@ function newCase(title,content,images,success,fail,complete){
           url: 'localhost:3000/api/case/'+caseId+'/images/'+'i',
           filePath: images[i],
           name: caseId+'-'+i,
+          header: {
+            "Content-Type": "multipart/form-data"
+          },
         }))
       }
 
