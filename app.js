@@ -59,7 +59,7 @@ App({
     userInfo: {
       id:"111",
       name:"ascasc",
-      type:"user"
+      type:"doctor"
     }
   }
 })

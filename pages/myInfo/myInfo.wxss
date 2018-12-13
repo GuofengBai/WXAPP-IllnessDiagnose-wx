@@ -16,7 +16,7 @@ page {
   padding-left: 10rpx;
 }
 .name,.introduction,.contact,.gender,.type {
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   border-bottom: 1px solid
 }
 .checked {

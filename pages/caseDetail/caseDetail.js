@@ -10,14 +10,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-<<<<<<< HEAD
     contentCount: 0,
     content: '',
-=======
-
-    contentCount:0,
-
->>>>>>> b6a6176f91734f35ace7f44dcbcd0b76bd860cbc
     id:1,
     /**
      * 这是当前用户的Info
@@ -64,14 +58,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that=this
     $init(this)
     this.setData({
       id:options.id,
     })
     myRequest.getCaseDetail(options.id,function(res){
-      console.log(res)
       /*
-      this.setData({
+      that.setData({
         caseDetail:res.data
       })
       */
@@ -148,7 +142,7 @@ Page({
     myRequest.newDiagnosis(content,function (res) {
       wx.hideLoading()
       wx.redirectTo({
-        url: '.../caseDetail/caseDetail?id='+that.data.id,
+        url: '/pages/caseDetail/caseDetail?id='+that.data.id,
       })
     }, function (err) {
       wx.hideLoading()

@@ -29,16 +29,6 @@ function getCaseList(page,success,fail,complete){
   })
 }
 
-function searchCaseList(word,page,success,fail,complete){
-  page=arguments[0]?arguments[0]:1;
-  wx.request({
-    url: serverIP+'/api/case/?query='+word+'&page='+page,
-    success:success,
-    fail:fail,
-    complete:complete
-  })
-}
-
 function getCaseDetail(caseId,success,fail,complete){
   wx.request({
     url: serverIP+'/api/case/'+caseId,
@@ -92,7 +82,7 @@ function updateMyInfo(data,success,fail,complete){
 
 function updateMyAccount(data,success,fail,complete){
   wx.request({
-    url: serverIP+'/api/user/' + app.globalData.userInfo.id+'account',
+    url: serverIP+'/api/user/' + app.globalData.userInfo.id+'/account',
     success: success,
     fail: fail,
     complete: complete
@@ -155,6 +145,10 @@ function register(user,success,fail){
     method: 'POST',
     data: user,
     success:function(res){
+      wx.setStorageSync('user', {
+        id:id,
+        type:user.type
+      })
       app.globalData.userInfo={
         id:id,
         type:user.type
@@ -165,10 +159,18 @@ function register(user,success,fail){
   })
 }
 
+function getDoctorInfo(id,success,fail){
+  wx.request({
+    url: serverIP+'/api/user/'+id,
+    success: success,
+    fail: fail
+  })
+}
+
+
 module.exports={
   myRequest:myRequest,
   getCaseList:getCaseList,
-  searchCaseList:searchCaseList,
   getCaseDetail:getCaseDetail,
   getMyCaseList:getMyCaseList,
   getMyInfo:getMyInfo,
@@ -177,4 +179,5 @@ module.exports={
   newCase:newCase,
   newDiagnosis:newDiagnosis,
   register:register,
+  getDoctorInfo:getDoctorInfo
 }

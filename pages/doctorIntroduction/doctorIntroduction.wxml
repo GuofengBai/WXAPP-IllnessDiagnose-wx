@@ -1,3 +1,20 @@
 <!--pages/doctorIntroduction/doctorIntroduction.wxml-->
+<view class="frame">
 
-<text>{{doctorId}}</text>
+  <view class="name">
+    <view class="label">
+      <text>医生姓名</text>
+    </view>
+    <text>{{name}}</text>
+  </view>
+
+  <view class="doctor">
+    <view class="label">
+      <text>医生简介</text>
+    </view>
+    <text>{{introduction}}</text>
+  </view>
+
+</view>
+
+

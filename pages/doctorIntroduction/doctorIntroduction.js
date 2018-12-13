@@ -1,19 +1,28 @@
 // pages/doctorIntroduction/doctorIntroduction.js
+const app=getApp()
+const myRequest=require('../../utils/myRequest')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    name:"未知",
+    introduction:"未知"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      doctorId: options.doctorId,
+    let that=this
+    myRequest.getDoctorInfo(options.id,function(res){
+      that.setData({
+        name: res.data.name,
+        introduction: res.data.introduction
+      })
+    },function(err){
+      console.log(err)
     })
     
   },

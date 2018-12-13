@@ -1,1 +1,14 @@
 /* pages/doctorIntroduction/doctorIntroduction.wxss */
+page {
+  background: #f6f7f8;
+}
+.frame {
+  margin:1rem
+}
+.name,.introduction {
+  margin-bottom: 2rem
+}
+.label {
+  border-bottom: 1rpx solid;
+  border-bottom-color: gainsboro
+}
