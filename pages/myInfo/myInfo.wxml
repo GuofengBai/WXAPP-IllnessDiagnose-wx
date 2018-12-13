@@ -4,17 +4,17 @@
   <view class="info-input-area">
 
     <view class="name">
-      <input placeholder="姓名" maxlength="10" placeholder-style="color:#b3b3b3;font-size:18px;" bindinput="handleNameInput" value="{{name}}"></input>
+      <input placeholder="姓名" maxlength="10" placeholder-style="color:#b3b3b3;font-size:18px;padding-left: 10rpx;" bindinput="handleNameInput" value="{{name}}"></input>
       <view class="input-counter">{{nameCount}}/10</view>
     </view>
     
     <view class="introduction">
-      <textarea placeholder="个人简介" maxlength="500" placeholder-style="color:#b3b3b3;font-size:14px;" style="height: 12rem" bindinput="handleIntroductionInput" value="{{introduction}}"/>
+      <textarea placeholder="个人简介" maxlength="500" placeholder-style="color:#b3b3b3;font-size:18px;" style="height: 12rem" bindinput="handleIntroductionInput" value="{{introduction}}"/>
       <view class="input-counter">{{introductionCount}}/500</view>
     </view>
 
     <view class="contact">
-      <textarea placeholder="联系方式、住址" maxlength="100" placeholder-style="color:#b3b3b3;font-size:14px;" style="height: 3rem" bindinput="handleContactInput" value="{{contact}}"/>
+      <textarea placeholder="联系方式、住址" maxlength="100" placeholder-style="color:#b3b3b3;font-size:18px;" style="height: 3rem" bindinput="handleContactInput" value="{{contact}}"/>
       <view class="input-counter">{{contactCount}}/100</view>
     </view>
 

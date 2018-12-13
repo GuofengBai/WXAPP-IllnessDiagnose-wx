@@ -11,7 +11,7 @@ page {
 }
 .input-counter {
   color: #b3b3b3;
-  font-size: 14px;
+  font-size: 18px;
   padding-left: 10rpx;
 }
 .name,.introduction,.contact,.gender,.type {
@@ -23,4 +23,7 @@ page {
 }
 .radio-item {
   margin:1rem
+}
+.weui-btn{
+  margin-top: 25px
 }

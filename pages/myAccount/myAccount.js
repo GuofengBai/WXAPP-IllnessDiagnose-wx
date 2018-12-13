@@ -7,8 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    phoneNumber:'',
-    password:'',
+    phoneNumber: '',
+    password: '',
 
   },
 
@@ -16,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    $init(this)
+    
 
   },
 
@@ -69,29 +69,31 @@ Page({
 
   },
   handlePhoneNumberInput(e){
-    const value=e.value
+    const value = e.detail.value
     this.setData({
       phoneNumber:value
     })
 
   },
   handlePasswordInput(e){
-    const value=e.value
+    const value = e.detail.value
     this.setData({
       password:value
     })
 
   },
   submitForm(e){
-    const phoneNumber=this.data.phoneNumber
-    const password=this.data.password
-
+    
+    var data={
+      phoneNumber: this.data.phoneNumber,
+      password: this.data.password,
+    }
     wx.showLoading({
       title: '正在更新...',
       mask: true
     })
 
-    myRequest.updateMyAccount(phoneNumber,password,function(res){
+    myRequest.updateMyAccount(data,function(res){
       wx.hideLoading()
       wx.navigateBack()
     }, function (err) {

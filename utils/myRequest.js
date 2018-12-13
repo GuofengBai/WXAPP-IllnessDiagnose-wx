@@ -81,6 +81,7 @@ function updateMyInfo(data,success,fail,complete){
 }
 
 function updateMyAccount(data,success,fail,complete){
+  console.log(data)
   wx.request({
     url: serverIP+'/api/user/' + app.globalData.userInfo.id+'/account',
     success: success,
