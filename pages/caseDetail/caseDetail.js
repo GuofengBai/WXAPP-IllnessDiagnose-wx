@@ -4,20 +4,20 @@ import { $init, $digest } from '../../utils/common.util'
 const app=getApp();
 
 Page({
-  handleContentInput(e) {
-    const value = e.detail.value
-    this.data.content = value
-    this.data.contentCount = value.length
-    $digest(this)
-  },
+  
 
   /**
    * 页面的初始数据
    */
   data: {
+<<<<<<< HEAD
+    contentCount: 0,
+    content: '',
+=======
 
     contentCount:0,
 
+>>>>>>> b6a6176f91734f35ace7f44dcbcd0b76bd860cbc
     id:1,
     /**
      * 这是当前用户的Info
@@ -64,6 +64,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    $init(this)
     this.setData({
       id:options.id,
     })
@@ -162,5 +163,6 @@ Page({
     this.data.contentCount = value.length
     $digest(this)
   },
+
 
 })
