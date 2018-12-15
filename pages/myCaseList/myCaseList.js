@@ -54,12 +54,9 @@ Page({
   onLoad: function (options) {
     var that=this
     myRequest.getMyCaseList(function(res){
-      console.log(res)
-      /*
       that.setData({
-        caseList:that.data.caseList.concat(res.data)
+        caseList:res.data
       })
-      */
     },function(err){
       console.log(err)
     },function(){

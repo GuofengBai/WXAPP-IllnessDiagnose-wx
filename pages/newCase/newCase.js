@@ -73,6 +73,7 @@ Page({
       wx.navigateBack()
     },function(err){
       wx.hideLoading()
+      wx.navigateBack()
     },function(){
       wx.hideLoading()
     })

@@ -88,6 +88,9 @@ Page({
       phoneNumber: this.data.phoneNumber,
       password: this.data.password,
     }
+    
+    console.log(data)
+
     wx.showLoading({
       title: '正在更新...',
       mask: true

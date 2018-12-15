@@ -5,7 +5,6 @@
     "pages/caseDetail/caseDetail",
     "pages/newCase/newCase",
     "pages/myCaseList/myCaseList",
-    "pages/newDiagnosis/newDiagnosis",
     "pages/myInfo/myInfo",
     "pages/myAccount/myAccount",
     "pages/doctorIntroduction/doctorIntroduction",

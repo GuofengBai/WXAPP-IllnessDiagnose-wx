@@ -16,7 +16,7 @@ Page({
    */
   onLoad: function (options) {
     let that=this
-    myRequest.getDoctorInfo(options.id,function(res){
+    myRequest.getDoctorInfo(options.doctorId,function(res){
       that.setData({
         name: res.data.name,
         introduction: res.data.introduction

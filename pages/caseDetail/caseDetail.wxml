@@ -4,22 +4,22 @@
   <view class="caseTitle">{{caseDetail.title}}</view>
   <view class='caseInfo-t'>
     <view class="caseTime">
-        <text>问诊日期：{{caseDetail.time}}</text>
+        <text>问诊日期：{{caseDetail.date}}</text>
       </view>
       <view class='caseContent'>
         <text>病情描述：{{caseDetail.content}}</text>
       </view>
 
-      <view class='privateInfo' wx:if="{{userInfo.id==caseDetail.userInfo.id||userInfo.type=='doctor'}}">
+      <view class='privateInfo' wx:if="{{userInfo.id==caseDetail.user._id||userInfo.type=='医生'}}">
         <view class='privateInfo-text'>
-          <text style='width:50%'>性别：{{caseDetail.userInfo.gender}} </text>
-          <text style='width:50%'>年龄：{{caseDetail.userInfo.age}} </text>
+          <text style='width:50%'>性别：{{caseDetail.user.gender}} </text>
+          <text style='width:50%'>年龄：{{caseDetail.user.age}} </text>
           
         </view>
-        <text style='margin:auto'>联系方式：{{caseDetail.userInfo.contact}} </text>
+        <text style='margin:auto'>联系方式：{{caseDetail.user.contact}} </text>
           <text>病例照片：</text>
           <block wx:for="{{caseDetail.pictures}}" wx:for-index='idx' wx:for-item='picture'>
-             <image src='{{picture}}'></image>
+             <image src='{{imagesPath+picture}}'></image>
           </block>
          
       </view>
@@ -27,9 +27,9 @@
   
 
   <view class='caseInfo-m'>
-  <block wx:for="{{caseDetail.diagnosisList}}">
+  <block wx:for="{{caseDetail.diagnosis}}">
     <view class='caseDiagnosisInfo'>
-      <navigator url='../doctorIntroduction/doctorIntroduction?doctorId={{item.doctorId}}'>{{item.doctorId}}：</navigator>
+      <navigator url='../doctorIntroduction/doctorIntroduction?doctorId={{item.doctor._id}}'>{{item.doctor.name}}：</navigator>
       <text class='date'>{{item.date}}</text>
     </view>
     <text>诊断意见：{{item.content}}</text>
@@ -39,7 +39,7 @@
 
     
 </view>
-<view wx:if="{{userInfo.type=='doctor'}}" class='caseComment'>
+<view wx:if="{{userInfo.type=='医生'}}" class='caseComment'>
   <text style='width:25%'>先情诊断： </text>
   <view class="weui-cell__bd">
       <textarea class="weui-textarea" placeholder="请输入您对患者病情的先情诊断。" maxlength="500" placeholder-style="color:#b3b3b3;" style="height: 12rem" bindinput="handleContentInput" />

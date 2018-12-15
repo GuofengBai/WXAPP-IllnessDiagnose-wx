@@ -10,6 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imagesPath: require('../../utils/config').serverIP + '/images/',
     contentCount: 0,
     content: '',
     id:1,
@@ -64,11 +65,10 @@ Page({
       id:options.id,
     })
     myRequest.getCaseDetail(options.id,function(res){
-      /*
       that.setData({
         caseDetail:res.data
       })
-      */
+      console.log(that.data.caseDetail.pictures)
     },function(err){
       console.log(err)
     },function(){
@@ -139,7 +139,7 @@ Page({
       mask: true
     })
 
-    myRequest.newDiagnosis(content,function (res) {
+    myRequest.newDiagnosis(this.data.id,content,function (res) {
       wx.hideLoading()
       wx.redirectTo({
         url: '/pages/caseDetail/caseDetail?id='+that.data.id,

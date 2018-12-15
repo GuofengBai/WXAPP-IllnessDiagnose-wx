@@ -1,6 +1,6 @@
 <!--pages/caseList/caseItem.wxml-->
 <template name="caseItem">
-<navigator url='../caseDetail/caseDetail?id={{id}}'>
+<navigator url='../caseDetail/caseDetail?id={{_id}}'>
  <view class="caseInfo">
     <view class="caseInfo-t">
       <view class="caseTitle">{{title}}</view>
@@ -11,9 +11,9 @@
     </view>
     <view class="caseInfo-b">
       <view class="caseTime">
-        <text>{{time}}</text>
+        <text>{{date}}</text>
       </view>
-      <view wx:if="{{reply}}" class='caseReply'>已回复</view>
+      <view wx:if="{{replied}}" class='caseReply'>已回复</view>
       <view wx:else class='caseReply' style='color:red'>未回复</view>
     </view>
   </view>

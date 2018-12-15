@@ -6,7 +6,7 @@ const app=getApp()
 
 function getCaseList(page,success,fail,complete){
   wx.request({
-    url: serverIP+'/api/case/?page='+page,
+    url: serverIP+'/api/case/',
     success:success,
     fail:fail,
     complete:complete
@@ -32,24 +32,15 @@ function getMyCaseList(success,fail,complete){
 }
 
 function getMyInfo(success,fail,complete){
-  var user={
-    name:"guofengbai",
-    introduction:"what!!!!",
-    gender:"男",
-    type:"用户",
-    contact:"guofengbai"
-  }
-  success(user)
-  /*
   wx.request({
     url: serverIP+'/api/user/' + app.globalData.userInfo.id,
     success: function(res){
+      console.log(res)
       success(res.data)
     },
     fail: fail,
     complete: complete
   })
-  */
 }
 
 function updateMyInfo(data,success,fail,complete){
@@ -66,6 +57,8 @@ function updateMyInfo(data,success,fail,complete){
 function updateMyAccount(data,success,fail,complete){
   wx.request({
     url: serverIP+'/api/user/' + app.globalData.userInfo.id+'/account',
+    method: 'POST',
+    data: data,
     success: success,
     fail: fail,
     complete: complete
@@ -79,42 +72,47 @@ function newCase(title,content,images,success,fail,complete){
     data: {
       title: title,
       content: content,
-      userId: app.globalData.userInfo.id
+      userId: app.globalData.userInfo.id,
+      date: new Date(),
     },
     success: function(res){
-      var caseId=res.id
-      const arr = []
+      if(res.data.status=='OK'){
+        var caseId = res.data.caseId
+        console.log(caseId)
+        const arr = []
 
-      for(var i=0;i<images.length;i++){
-        arr.push(wxUploadFile({
-          url: 'localhost:3000/api/case/'+caseId+'/images/'+'i',
-          filePath: images[i],
-          name: caseId+'-'+i,
-          header: {
-            "Content-Type": "multipart/form-data"
-          },
-        }))
+        for (var i = 0; i < images.length; i++) {
+          arr.push(wxUploadFile({
+            url: serverIP+'/api/case/' + caseId + '/images/' + i,
+            filePath: images[i],
+            name: caseId + '-' + i,
+            header: {
+              "Content-Type": "multipart/form-data"
+            },
+          }))
+        }
+
+        Promise.all(arr).then(res => {
+          success(res)
+        }).catch(err => {
+          fail(err)
+        })
+      }else{
+        fail('creat new case failed!')
       }
-
-      Promise.all(arr).then(res => {
-        success(res)
-      }).catch(err => {
-        fail(err)
-      })
-
     },
     fail: fail,
     complete: complete
   })
 }
 
-function newDiagnosis(content,success,fail,complete){
+function newDiagnosis(caseId,content,success,fail,complete){
   
   wx.request({
-    url: serverIP+'/api/',
+    url: serverIP+'/api/diagnosis/case/'+caseId,
     method: 'POST',
     data:{
-      userId: app.globalData.userInfo.id,
+      doctorId: app.globalData.userInfo.id,
       content: content,
       date:new Date(),
     },

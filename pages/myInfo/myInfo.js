@@ -127,9 +127,10 @@ Page({
       name: this.data.name,
       introduction: this.data.introduction,
       contact: this.data.contact,
-      genger: this.data.gender[this.data.genderSelect].value,
+      gender: this.data.gender[this.data.genderSelect].value,
       type: this.data.type
     }
+    console.log(user)
     myRequest.updateMyInfo(user, function (res) {
      wx.navigateBack({
        
