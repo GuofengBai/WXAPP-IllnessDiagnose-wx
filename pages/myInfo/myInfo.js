@@ -14,7 +14,9 @@ Page({
     introduction: "",
     introductionCount: 0,
     contact: "",
-    contactCount: 0
+    contactCount: 0,
+    age:'',
+    ageCount:0
   },
 
   /**
@@ -39,6 +41,8 @@ Page({
         introductionCount: data.introduction.length,
         contact:data.contact,
         contactCount:data.contact.length,
+        age:data.age,
+        ageCount:data.age.length,
         type:data.type
       })
     },function(res){
@@ -117,6 +121,13 @@ Page({
       contactCount:value.length
     })
   },
+  handleAgeInput(e) {
+    const value = e.detail.value
+    this.setData({
+      age: value,
+      ageCount: value.length
+    })
+  },
   genderSel(e) {
     this.setData({
       genderSelect: e.currentTarget.dataset.id
@@ -127,6 +138,7 @@ Page({
       name: this.data.name,
       introduction: this.data.introduction,
       contact: this.data.contact,
+      age:this.data.age,
       gender: this.data.gender[this.data.genderSelect].value,
       type: this.data.type
     }

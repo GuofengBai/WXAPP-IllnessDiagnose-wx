@@ -15,7 +15,7 @@ page {
   font-size: 18px;
   padding-left: 10rpx;
 }
-.name,.introduction,.contact,.gender,.type {
+.name,.introduction,.contact,.age,.gender,.type {
   margin-top: 0.5rem;
   border-bottom: 1px solid
 }

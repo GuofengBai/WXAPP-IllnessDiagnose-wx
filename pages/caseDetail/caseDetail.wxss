@@ -67,3 +67,12 @@
   width:100%;
   border: 1px solid;
 }
+.privateInfo {
+  margin-top: 0.5rem;
+  border-top: 1px solid;
+  border-top-color: gray;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid;
+  border-bottom-color: gray;
+
+}

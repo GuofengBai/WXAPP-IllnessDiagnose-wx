@@ -5,7 +5,7 @@
   <view class="caseRecord">
     <text>问诊记录</text>
   </view>
-  <navigator class='caseCreate' url='../newCase/newCase'>
+  <navigator wx:if="{{userInfo.type=='用户'}}" class='caseCreate' url='../newCase/newCase'>
     <text>问问医生</text>
   </navigator>
 </view>

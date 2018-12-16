@@ -17,7 +17,9 @@ Page({
     introduction: "",
     introductionCount: 0,
     contact: "",
-    contactCount: 0
+    contactCount: 0,
+    age:'',
+    ageCount:0
 
   },
 
@@ -94,6 +96,12 @@ Page({
     this.data.contactCount = value.length
     $digest(this)
   },
+  handleAgeInput(e) {
+    const value = e.detail.value
+    this.data.age = value
+    this.data.ageCount = value.length
+    $digest(this)
+  },
   genderSel(e){
     this.setData({
       genderSelect: e.currentTarget.dataset.id
@@ -109,6 +117,7 @@ Page({
       name:this.data.name,
       introduction:this.data.introduction,
       contact:this.data.contact,
+      age:this.data.age,
       gender:this.data.gender[this.data.genderSelect].value,
       type: this.data.type[this.data.typeSelect].value
     }

@@ -18,6 +18,11 @@
       <view class="input-counter">{{contactCount}}/100</view>
     </view>
 
+    <view class="age">
+      <input placeholder="年龄" maxlength="3" placeholder-style="color:#b3b3b3;font-size:18px;padding-left: 10rpx;" bindinput="handleAgeInput" value="{{age}}"></input>
+      <view class="input-counter">{{ageCount}}/3</view>
+    </view>
+
     <view class="gender">
       <block wx:for="{{gender}}" wx:key="item">
     <text class='radio-item {{item.id==genderSelect?"checked":""}}' data-id='{{item.id}}' bindtap='genderSel'>{{item.value}}</text>
